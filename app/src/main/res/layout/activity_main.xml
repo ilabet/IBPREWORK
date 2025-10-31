@@ -8,6 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Existing UI - With corrected syntax -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -31,15 +32,105 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/screenshot_capture___2025_01_23___00_19_46" />
 
+    <!-- New Verification UI Elements -->
+    <!-- These three elements are mutually exclusive and constrained to the space
+         between the introductory text and the final 'Welcome!' button. -->
+
+    <!-- 1. Verify Email Button (Initial State: Visible, if not verified) -->
+    <Button
+        android:id="@+id/btnVerifyEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_verify_email"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.2"
+        tools:visibility="visible" />
+
+    <!-- 2. Verification Input Section (Initial State: Gone) -->
+    <LinearLayout
+        android:id="@+id/llVerificationInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintWidth_percent="0.8"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvVerificationStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textAlignment="center"
+            tools:text="@string/msg_code_sent_success" />
+
+        <EditText
+            android:id="@+id/etVerificationCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="smsOTP"
+            android:gravity="center"
+            android:hint="@string/hint_verification_code"
+            android:inputType="number"
+            android:maxLength="6" />
+
+        <Button
+            android:id="@+id/btnSubmitCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/btn_submit_code" />
+
+        <Button
+            android:id="@+id/btnResendCode"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/btn_resend_code" />
+
+    </LinearLayout>
+
+    <!-- 3. Verified Badge/Text (Initial State: Gone) -->
+    <TextView
+        android:id="@+id/tvVerifiedBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@android:drawable/checkbox_on_background"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/text_verified_badge"
+        android:textColor="@color/verified_green"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.2"
+        tools:visibility="visible" />
+
+    <!-- Existing "Welcome!" button with corrected constraints -->
+    <!-- It now acts as a stable anchor at the bottom of the screen, avoiding constraint conflicts. -->
     <Button
         android:id="@+id/button"
         android:layout_width="177dp"
         android:layout_height="107dp"
+        android:layout_marginBottom="32dp"
         android:text="Welcome!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
