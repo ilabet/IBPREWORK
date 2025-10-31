@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">I.B PREWORK</string>
 </resources>
+
+<resources>
+    <string name="app_name">I.B PREWORK</string>
+    <string name="btn_verify_email">Verify Email</string>
+    <string name="hint_verification_code">Enter Verification Code</string>
+    <string name="btn_submit_code">Submit Code</string>
+    <string name="btn_resend_code">Resend Code</string>
+    <string name="msg_code_sent_success">Verification code sent! Check your inbox.</string>
+    <string name="msg_email_verified_success">Email successfully verified!</string>
+    <string name="err_invalid_code">Invalid verification code. Please try again.</string>
+    <string name="err_code_expired">Verification code expired. Please request a new one.</string>
+    <string name="err_unsupported_email_domain">Email domain not supported. Please use your VSU student email.</string>
+    <string name="err_generic_api_failure">An error occurred. Please try again later.</string>
+    <string name="text_verified_badge">Verified</string>
+</resources>
